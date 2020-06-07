@@ -1,0 +1,45 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx9673\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf2 **load the nc file \
+ncdisp\'92 .ncfile name\'92\
+lat= ncread(ncfile, \'91lat\'92)\
+lon=ncread(ncfile, \'91lon\'92)\
+time=ncread(ncfile, \'91time\'92)\
+**Extract temperature data at 17,14 location time_days2000=sst(17,14,1:366)-273.15;Nobel2000=squeeze (time_days2000(1,1,:));\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf2  time_days2001=sst(17,14,367:731)-273.15;Nobel2001=squeeze (time_days2001(1,1,:));\
+ time_days2002=sst(17,14,732:1095)-273.15;Nobel2002=squeeze (time_days2002(1,1,:));\
+time_days2003=sst(17,14,1096:1460)-273.15;Nobel2003=squeeze (time_days2003(1,1,:));\
+time_days2004=sst(17,14,1461:1826)-273.15;Nobel2004=squeeze (time_days2004(1,1,:));\
+ time_days2005=sst(17,14,1827:2191)-273.15;Nobel2005=squeeze (time_days2005(1,1,:));\
+time_days2006=sst(17,14,2192:2556)-273.15;Nobel2006=squeeze (time_days2006(1,1,:));\
+time_days2007=sst(17,14,2557:2921)-273.15;Nobel2007=squeeze (time_days2007(1,1,:)); time_days2008=sst(17,14,2921:3286)-273.15;Nobel2008=squeeze (time_days2008(1,1,:)); time_days2009=sst(17,14,3287:3651)-273.15;Nobel2009=squeeze (time_days2009(1,1,:));\
+time_days2010=sst(17,14,3651:4015)-273.15;Nobel2010=squeeze (time_days2010(1,1,:));\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx9673\pardirnatural\partightenfactor0
+\cf2 \
+westdiep 15,4 Edulis 21, 12 Fairy Bank 10, 8 Nobel wind 17,14\
+\
+\
+***getting the days of reaching 576 degree days\
+\pard\pardeftab720\partightenfactor0
+\cf2 NobelSum2010=0;\
+k=1;\
+while NobelSum2010<576\
+	if Nobel2010(k)<7 \
+		k=k+1;\
+	else\
+    NobelSum2010=NobelSum2010+(Nobel2010(k)-7);\
+    k=k+1;\
+end\
+end\
+disp(NobelSum2010);\
+disp(k);\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx9673\pardirnatural\partightenfactor0
+\cf2 \
+}
